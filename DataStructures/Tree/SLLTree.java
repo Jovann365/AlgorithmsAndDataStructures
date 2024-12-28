@@ -156,4 +156,20 @@ public class SLLTree<E> implements Tree<E> {
         return t;
     }
 
+    // Personally added method
+    public int countleaves (Tree.Node<E> node) {
+        if (node == null) {
+            return 0;
+        }
+        if (childCount(node) == 0) {
+            return 1;
+        }
+        int count = 0;
+        SLLNode<E> child = ((SLLNode<E>) node).firstChild;
+        while (child != null) {
+            count += countleaves(child);
+            child = child.sibling;
+        }
+        return count;
+    }
 }

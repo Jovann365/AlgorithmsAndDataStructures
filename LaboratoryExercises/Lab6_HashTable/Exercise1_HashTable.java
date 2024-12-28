@@ -1,4 +1,4 @@
-package LaboratoryExercises.Lab6;
+package LaboratoryExercises.Lab6_HashTable;
 
 import DataStructures.HashTables.CBHT;
 

@@ -226,4 +226,18 @@ public class BinarySearchTree<E extends Comparable<E>>{
     public BNode<E> getRoot() {
         return root;
     }
+
+    // Personally added class
+    public int depth(BNode<Integer> node, Integer value) {
+        if (node == null) {
+            return 0;
+        }
+        if (node.info == value) {
+            return 1;
+        }
+        if (value > node.info) {
+            return depth(node.right, value) + 1;
+        }
+        return depth(node.left, value) + 1;
+    }
 }

@@ -144,7 +144,7 @@ public class BTree<E> {
         return leavesR(root);
     }
 
-    int depthR(BNode<E> node) {
+    public int depthR(BNode<E> node) {
         if (node == null)
             return 0;
         if ((node.left == null)&&(node.right == null))
@@ -179,4 +179,19 @@ public class BTree<E> {
         mirrorR(root);
     }
 
+    // Personally added method
+    public BNode<E> search(BNode<E> root,E data) {
+        if (root == null)
+            return null;
+        if (root.info.equals(data)){
+            return root;
+        }
+        BNode<E> left = search(root.left, data);
+        BNode<E> right = search(root.right, data);
+
+        if (left != null) {
+            return left;
+        }
+        return right;
+    }
 }
