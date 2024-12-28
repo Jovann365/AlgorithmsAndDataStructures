@@ -1,5 +1,5 @@
 package DataStructures.Queue;
-import DataStructures.Graphs.SLLNode;
+import DataStructures.List.SLLNode;
 
 import java.util.NoSuchElementException;
 

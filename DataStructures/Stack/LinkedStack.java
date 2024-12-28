@@ -1,5 +1,5 @@
 package DataStructures.Stack;
-import DataStructures.Graphs.SLLNode;
+import DataStructures.List.SLLNode;
 
 import java.util.NoSuchElementException;
 

@@ -1,4 +1,4 @@
-package DataStructures.Graphs;
+package DataStructures.List;
 
 public class SLLNode<E> {
     public E element;

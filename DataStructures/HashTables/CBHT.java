@@ -1,6 +1,6 @@
 package DataStructures.HashTables;
 
-import DataStructures.Graphs.SLLNode;
+import DataStructures.List.SLLNode;
 
 public class CBHT<K extends Comparable<K>, E> {
 

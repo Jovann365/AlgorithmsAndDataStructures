@@ -1,7 +1,5 @@
 package DataStructures.List;
 
-import DataStructures.Graphs.SLLNode;
-
 public class SLL<E> {
 
     private SLLNode<E> first;
