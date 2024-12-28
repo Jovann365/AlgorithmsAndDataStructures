@@ -1,4 +1,4 @@
-package LaboratoryExercises.Lab8;
+package LaboratoryExercises.Lab8_SearchTree;
 
 import DataStructures.SearchTrees.BinarySearchTree;
 

@@ -176,4 +176,56 @@ public class AdjacencyListGraph<T> {
             ret += vertex.getKey() + ": " + vertex.getValue() + "\n";
         return ret;
     }
+
+    // Personally added class
+    public int count(T vertex, int sum) {
+        Set<T> set = new HashSet<>();
+        return countR(vertex, Integer.parseInt(vertex.toString()), sum, set);
+    }
+
+    // Personally added class
+    public int countR(T vertex, int currsum, int sum, Set<T> set){
+        if (sum == currsum) {
+            return 1;
+        }
+        if (currsum > sum) {
+            return 0;
+        }
+        set.add(vertex);
+        int count = 0;
+        for (T neighbour : getNeighbors(vertex)) {
+            int currentSum = currsum + Integer.parseInt(neighbour.toString());
+            if (!set.contains(neighbour) || currentSum <= sum)
+                count += countR(neighbour, currentSum, sum, set);
+        }
+        set.remove(vertex);
+        return count;
+    }
+
+    // Personally added class
+    private void DFSUtilA(T vertex, Set<T> visited) {
+        // Mark the current node as visited and print it
+        visited.add(vertex);
+        // System.out.print(vertex + " ");
+
+        // Recur for all the vertices adjacent to this vertex
+        for (T neighbor : getNeighbors(vertex)) {
+            if (!visited.contains(neighbor)) {
+                DFSUtilA(neighbor, visited);
+            }
+        }
+    }
+
+    //Personally added classs
+    public int countSections() {
+        Set<T> visited = new HashSet<>();
+        int count = 0;
+        for (T vertex : adjacencyList.keySet()) {
+            if (!visited.contains(vertex)) {
+                DFSUtilA(vertex, visited);
+                count++;
+            }
+        }
+        return count;
+    }
 }
