@@ -19,7 +19,6 @@
 32
 16
 32 - 4*4 = 16;  16 - 4*4 = 0. (одземавме 2 пати)
----------------------------------------------------------------------------
 What is the minimum number of times we need to subtract the square of an integer for a number X to become 0?
 
 Input: Integer X from 1 to 10^5.
