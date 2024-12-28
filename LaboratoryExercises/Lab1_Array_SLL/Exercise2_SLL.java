@@ -1,4 +1,4 @@
-package LaboratoryExercises.Lab1;
+package LaboratoryExercises.Lab1_Array_SLL;
 
 import DataStructures.List.SLLNode;
 import DataStructures.List.SLL;

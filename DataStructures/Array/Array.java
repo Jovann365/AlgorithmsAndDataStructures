@@ -115,4 +115,25 @@ public class Array<E> {
         return ret;
     }
 
+    // Personally added method
+    public void sort() {
+        for (int i=0; i<size; i++) {
+            for (int j = 0; j < size - 1; j++) {
+                if ((Integer) data[j] < (Integer) data[j + 1]) {
+                    E temp = data[j];
+                    data[j] = data[j + 1];
+                    data[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    // Personally added method
+    public long toNumber() {
+        long Number = 0;
+        for (int i=0; i<size; i++) {
+            Number = Number * 10 + (Integer)data[i];
+        }
+        return Number;
+    }
 }

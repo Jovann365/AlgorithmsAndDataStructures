@@ -1,7 +1,6 @@
-package LaboratoryExercises.Lab2;
+package LaboratoryExercises.Lab2_DLL;
 
 import DataStructures.List.DLL;
-import DataStructures.List.DLLNode;
 
 import java.util.Scanner;
 
