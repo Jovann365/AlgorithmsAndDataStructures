@@ -5,7 +5,7 @@ import DataStructures.List.SLL;
 
 import java.util.Scanner;
 
-public class Exercice2 {
+public class Exercise2_SLL {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

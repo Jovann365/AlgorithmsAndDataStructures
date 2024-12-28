@@ -4,7 +4,7 @@ import DataStructures.Array.Array;
 
 import java.util.Scanner;
 
-public class Exercise1 {
+public class Exercise1_Array {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();

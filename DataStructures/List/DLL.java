@@ -178,4 +178,24 @@ public class DLL<E> {
             first=tmp.pred;
         }
     }
+
+    // Personally implemented method
+    public void swap(DLLNode<E> a, DLLNode<E> b) {
+        E tmp = a.element;
+        a.element = b.element;
+        b.element = tmp;
+    }
+
+    // Personally implemented method
+    public DLLNode<E> getByIndex(int index) {
+        DLLNode<E> tmp = first;
+        int brojac = 1;
+        while (tmp != null) {
+            if (brojac == index)
+                return tmp;
+            tmp = tmp.succ;
+            brojac++;
+        }
+        return null;
+    }
 }
