@@ -22,16 +22,23 @@ Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.
 import DataStructures.BTree.TreeNode;
 
 public class HouseRobberIII {
+    // From solutions leetcode
     public static int rob(TreeNode root) {
-        int [] checkLevels = new int[depth(root)];
-        return 0;
-    }
-    public static int depth(TreeNode node) {
-        if (node == null)
-            return 0;
-        if ((node.left == null) && (node.right == null))
-            return 0;
-        return (1 + Math.max(depth(node.left), depth(node.right)));
+        if (root == null) return 0;
+
+        int ans = 0;
+
+        // max value from left grandchildren
+        if (root.left != null) {
+            ans += rob(root.left.left) + rob(root.left.right);
+        }
+
+        // max value from right grandchildren
+        if (root.right != null) {
+            ans += rob(root.right.left) + rob(root.right.right);
+        }
+
+        return Math.max(ans + root.val, rob(root.left) + rob(root.right));  //(Case1,Case2)
     }
 
 
