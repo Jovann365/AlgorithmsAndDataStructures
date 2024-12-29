@@ -23,27 +23,17 @@ import DataStructures.BTree.TreeNode;
 
 public class HouseRobberIII {
     public static int rob(TreeNode root) {
-        int sumEven = robUtil(root, 0, 0);
-        int sumOdd = robUtil(root, 0, 1);
-        if (sumEven > sumOdd)
-            return sumEven;
-        return sumOdd;
+        int [] checkLevels = new int[depth(root)];
+        return 0;
+    }
+    public static int depth(TreeNode node) {
+        if (node == null)
+            return 0;
+        if ((node.left == null) && (node.right == null))
+            return 0;
+        return (1 + Math.max(depth(node.left), depth(node.right)));
     }
 
-    public static int robUtil(TreeNode root, int level, int flag) {
-        if (root == null) {
-            return 0;
-        }
-        if (flag == 1 && level%2 == 1) {
-            flag = 0;
-            return root.val;
-        }
-        if (flag == 0 && level%2 == 0) {
-            flag = 1;
-            return root.val;
-        }
-        return robUtil(root.left, level+1, flag) + robUtil(root.right, level+1, flag);
-    }
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(3);
