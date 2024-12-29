@@ -19,5 +19,40 @@ Output: 9
 Explanation: Maximum amount of money the thief can rob = 4 + 5 = 9.
  */
 
+import DataStructures.BTree.TreeNode;
+
 public class HouseRobberIII {
+    public static int rob(TreeNode root) {
+        int sumEven = robUtil(root, 0, 0);
+        int sumOdd = robUtil(root, 0, 1);
+        if (sumEven > sumOdd)
+            return sumEven;
+        return sumOdd;
+    }
+
+    public static int robUtil(TreeNode root, int level, int flag) {
+        if (root == null) {
+            return 0;
+        }
+        if (flag == 1 && level%2 == 1) {
+            flag = 0;
+            return root.val;
+        }
+        if (flag == 0 && level%2 == 0) {
+            flag = 1;
+            return root.val;
+        }
+        return robUtil(root.left, level+1, flag) + robUtil(root.right, level+1, flag);
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        TreeNode left1 = new TreeNode(2);
+        TreeNode right1 = new TreeNode(3);
+        root.left = left1;
+        root.right = right1;
+        left1.right = new TreeNode(3);
+        right1.right = new TreeNode(1);
+        System.out.println(rob(root));
+    }
 }
