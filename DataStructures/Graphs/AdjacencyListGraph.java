@@ -65,6 +65,40 @@ public class AdjacencyListGraph<T> {
         }
     }
 
+    // Personally added function
+    public boolean checkCourses() {
+        Set<T> visited = new HashSet<>();
+        Set<T> recursionStack = new HashSet<>();
+
+        for (T vertex : adjacencyList.keySet()) {
+            if (!visited.contains(vertex)) {
+                if (!checkCoursesUtil(vertex, visited, recursionStack)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    // Personally added function
+    private boolean checkCoursesUtil(T vertex, Set<T> visited, Set<T> recursionStack) {
+        visited.add(vertex);
+        recursionStack.add(vertex);
+
+        for (T neighbor : getNeighbors(vertex)) {
+            if (recursionStack.contains(neighbor)) {
+                return false;
+            }
+            if (!visited.contains(neighbor)) {
+                if (!checkCoursesUtil(neighbor, visited, recursionStack)) {
+                    return false;
+                }
+            }
+        }
+        recursionStack.remove(vertex);
+        return true;
+    }
+
 
     public void DFSNonRecursive(T startVertex) {
         Set<T> visited = new HashSet<>();
@@ -227,5 +261,24 @@ public class AdjacencyListGraph<T> {
             }
         }
         return count;
+    }
+
+    public int count() {
+        Set<T> visited = new HashSet<>();
+        int count = 0;
+        for (T vertex : adjacencyList.keySet()) {
+            if (!visited.contains(vertex)) {
+                DFSUtil(vertex, visited);
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public boolean exists(T source, T destination) {
+        if (adjacencyList.get(source).contains(destination)) {
+            return true;
+        }
+        return false;
     }
 }
