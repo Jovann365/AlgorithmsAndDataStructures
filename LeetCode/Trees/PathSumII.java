@@ -5,6 +5,7 @@ import DataStructures.Tree.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class PathSumII {
     public static List<List<Integer>> pathSum(TreeNode root, int targetSum) {
@@ -17,13 +18,18 @@ public class PathSumII {
     public static void pathSumUtil(TreeNode node, int targetSum, List<List<Integer>> result, List<Integer> currList, int sum) {
        if (node == null)
            return;
-       if (sum + node.val != targetSum || (sum + node.val == targetSum && node.left != null && node.right != null)){
+       if (sum + node.val != targetSum || (sum + node.val == targetSum && (node.left != null || node.right != null))){
            currList.add(node.val);
            sum += node.val;
        }
        else if (sum + node.val == targetSum && node.left == null && node.right == null) {
            currList.add(node.val);
-           result.add(currList);
+           sum += node.val;
+           List<Integer> newList = new ArrayList<>();
+           for (int i = 0; i < currList.size(); i++) {
+               newList.add(i, currList.get(i));
+           }
+           result.add(newList);
        }
        if (node.left != null) {
            pathSumUtil(node.left, targetSum, result, currList, sum);
@@ -31,8 +37,12 @@ public class PathSumII {
        if (node.right != null) {
            pathSumUtil(node.right, targetSum, result, currList, sum);
        }
-       currList.remove(node.val);
-        sum -= node.val;
+        if (!currList.isEmpty()) {
+            sum = sum - node.val;
+            currList.removeLast();
+        } else {
+           return;
+       }
     }
 
     public static void main(String[] args) {
