@@ -34,16 +34,20 @@ public class Exercise3 {
             String destination = sc.next();
             graph.addEdge(source, destination);
         }
+        int maxTime = 0;
         List<String> sorted = graph.topologicalSort();
-        int [] maxTimes = new int[sorted.size()];
+        // int [] maxTimes = new int[sorted.size()];
         for (int i = sorted.size()-1; i >= 0; i--) {
-            maxTimes[i] = weights.get(sorted.get(i)) + findMax(graph, sorted.get(i), weights);
-            weights.put(sorted.get(i), maxTimes[i]);
+//            maxTimes[i] = weights.get(sorted.get(i)) + findMax(graph, sorted.get(i), weights);
+//            weights.put(sorted.get(i), maxTimes[i]);
+            weights.put(sorted.get(i), weights.get(sorted.get(i)) + findMax(graph, sorted.get(i), weights));
+            if (weights.get(sorted.get(i)) > maxTime)
+                maxTime = weights.get(sorted.get(i));
         }
-        int maxTime = maxTimes[0];
-        for (int i = 0; i < sorted.size(); i++) {
-            if (maxTimes[i] > maxTime) maxTime = maxTimes[i];
-        }
+//        int maxTime = maxTimes[0];
+//        for (int i = 0; i < sorted.size(); i++) {
+//            if (maxTimes[i] > maxTime) maxTime = maxTimes[i];
+//        }
         System.out.println(maxTime);
     }
 }
