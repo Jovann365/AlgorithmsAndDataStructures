@@ -29,7 +29,7 @@ public class AdjacencyMatrixGraph<T> {
 
     public void addEdge(int source, int destination, int weight) {
         matrix[source][destination] = weight;
-        matrix[destination][source] = weight; // For undirected graph
+       // matrix[destination][source] = weight; // For undirected graph
     }
 
     public boolean isEdge(int source, int destination) {
@@ -181,6 +181,24 @@ public class AdjacencyMatrixGraph<T> {
         }
 
         return mstEdges;
+    }
+
+    // Personally added method
+    public int getIndex(T value) {
+        for (int i = 0; i < numVertices; i++){
+            if (vertices[i].equals(value))
+                return i;
+        }
+        return -1;
+    }
+
+    //Personally added method
+    public boolean exists(T value) {
+        for (int i = 0; i < numVertices; i++){
+            if (vertices[i].equals(value))
+                return true;
+        }
+        return false;
     }
 
     @Override

@@ -19,4 +19,7 @@ public class Edge {
         return this.weight;
     }
 
+    public String toString() {
+        return fromVertex +" "+ toVertex +" "+ weight;
+    }
 }
