@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Exercise3 {
+public class Exercise3_TopologicalSort {
     public static int findMax(AdjacencyListGraph<String> graph, String vertex, Map<String, Integer> weights){
         int max = 0;
         for (String neighbour : graph.getNeighbors(vertex)) {

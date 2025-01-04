@@ -2,11 +2,10 @@ package LaboratoryExercises.Lab10_GraphsAlgorithms;
 
 import DataStructures.Graphs.AdjacencyMatrixGraph;
 import DataStructures.Graphs.Edge;
-import DataStructures.Graphs.ShoertestPath.AdjacencyListGraph;
 
 import java.util.*;
 
-public class Exercise1 {
+public class Exercise1_Kruskal {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
