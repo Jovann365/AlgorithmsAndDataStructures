@@ -2,6 +2,8 @@ package LeetCode.Trees;
 
 import DataStructures.BTree.TreeNode;
 
+// Not valid solution
+
 public class ValidateBST {
     public boolean isValidBST(TreeNode root) {
         TreeNode left = root.left;
