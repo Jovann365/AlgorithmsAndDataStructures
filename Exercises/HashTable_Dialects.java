@@ -17,13 +17,35 @@ public class HashTable_Dialects {
                 table.insert(word, translation);
             }
         }
-        System.out.println(table.toString());
+        sc.nextLine();
         String sentence = sc.nextLine();
         String [] words = sentence.split(" ");
+        String translated = "";
         for (int i = 0; i < words.length; i++) {
             String word = words[i];
-            if (word.charAt(word.length() -1) == '.' ||  )
+            String oldWord = word;
+            Character s = ' ';
+            boolean uppercase = false;
+            if (word.charAt(word.length()-1) == '.' || word.charAt(word.length()-1) == '!' || word.charAt(word.length()-1) == '?' || word.charAt(word.length()-1) == ',') {
+                s = word.charAt(word.length()-1);
+                word = word.substring(0, word.length()-1);
+            }
+            if (Character.isUpperCase(word.charAt(0))) {
+                uppercase = true;
+            }
+            word = word.toLowerCase();
+            String newWord = oldWord;
+            if (table.search(word) != null) {
+             newWord=table.search(word).element.value;
+             if (uppercase) {
+                 newWord = newWord.replace(newWord.charAt(0), Character.toUpperCase(newWord.charAt(0)));
+             }
+             if (s != ' ') {
+                 newWord = newWord.concat(s.toString());
+             }
+            }
+            translated = translated.concat(newWord + " ");
         }
-
+        System.out.println(translated);
     }
 }
