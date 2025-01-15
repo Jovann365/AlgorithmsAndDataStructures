@@ -55,7 +55,7 @@ public class AdjacencyListGraph<T> {
     private void DFSUtil(T vertex, Set<T> visited) {
         // Mark the current node as visited and print it
         visited.add(vertex);
-        System.out.print(vertex + " ");
+        // System.out.print(vertex + " ");
 
         // Recur for all the vertices adjacent to this vertex
         for (T neighbor : getNeighbors(vertex)) {
@@ -237,7 +237,7 @@ public class AdjacencyListGraph<T> {
     }
 
     // Personally added class
-    private void DFSUtilA(T vertex, Set<T> visited) {
+    public void DFSUtilA(T vertex, Set<T> visited) {
         // Mark the current node as visited and print it
         visited.add(vertex);
         // System.out.print(vertex + " ");
