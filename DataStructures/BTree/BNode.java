@@ -6,10 +6,11 @@ public class BNode<E> {
     public BNode<E> left;
     public BNode<E> right;
 
-    static int LEFT = 1;
-    static int RIGHT = 2;
+    public static int LEFT = 1;
+    public static int RIGHT = 2;
 
     public BNode<E> parent;
+
     public BNode(E info, BNode<E> parent) {
         this.parent = parent;
         this.info = info;
